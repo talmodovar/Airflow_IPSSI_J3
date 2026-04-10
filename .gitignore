@@ -1,0 +1,27 @@
+# Airflow
+**/logs/
+**/plugins/
+**/airflow.db
+**/airflow-webserver.pid
+**/standalone_admin_password.txt
+
+# Docker
+**/volumes/
+.env
+hadoop.env
+
+# Python
+**/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+env/
+venv/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Images (optional, but those are lab results)
+# *.png
