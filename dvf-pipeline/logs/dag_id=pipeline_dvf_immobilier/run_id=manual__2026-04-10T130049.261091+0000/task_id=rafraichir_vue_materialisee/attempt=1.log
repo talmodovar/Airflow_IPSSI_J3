@@ -1,0 +1,17 @@
+[2026-04-10T13:07:42.380+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: pipeline_dvf_immobilier.rafraichir_vue_materialisee manual__2026-04-10T13:00:49.261091+00:00 [queued]>
+[2026-04-10T13:07:42.390+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: pipeline_dvf_immobilier.rafraichir_vue_materialisee manual__2026-04-10T13:00:49.261091+00:00 [queued]>
+[2026-04-10T13:07:42.391+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 2
+[2026-04-10T13:07:42.406+0000] {taskinstance.py:2191} INFO - Executing <Task(_PythonDecoratedOperator): rafraichir_vue_materialisee> on 2026-04-10 13:00:49.261091+00:00
+[2026-04-10T13:07:42.412+0000] {standard_task_runner.py:60} INFO - Started process 244 to run task
+[2026-04-10T13:07:42.415+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'pipeline_dvf_immobilier', 'rafraichir_vue_materialisee', 'manual__2026-04-10T13:00:49.261091+00:00', '--job-id', '21', '--raw', '--subdir', 'DAGS_FOLDER/dag_dvf.py', '--cfg-path', '/tmp/tmpwgt6tj__']
+[2026-04-10T13:07:42.417+0000] {standard_task_runner.py:88} INFO - Job 21: Subtask rafraichir_vue_materialisee
+[2026-04-10T13:07:42.474+0000] {task_command.py:423} INFO - Running <TaskInstance: pipeline_dvf_immobilier.rafraichir_vue_materialisee manual__2026-04-10T13:00:49.261091+00:00 [running]> on host 47d9fcb38104
+[2026-04-10T13:07:42.746+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='antigravity' AIRFLOW_CTX_DAG_ID='pipeline_dvf_immobilier' AIRFLOW_CTX_TASK_ID='rafraichir_vue_materialisee' AIRFLOW_CTX_EXECUTION_DATE='2026-04-10T13:00:49.261091+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-04-10T13:00:49.261091+00:00'
+[2026-04-10T13:07:42.747+0000] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2026-04-10T13:07:42.748+0000] {base.py:83} INFO - Using connection ID 'dvf_postgres' for task execution.
+[2026-04-10T13:07:42.754+0000] {sql.py:450} INFO - Running statement: REFRESH MATERIALIZED VIEW dvf_evolution_mensuelle;, parameters: None
+[2026-04-10T13:07:42.805+0000] {dag_dvf.py:376} INFO - Materialized View refreshed successfully.
+[2026-04-10T13:07:42.806+0000] {python.py:201} INFO - Done. Returned value was: None
+[2026-04-10T13:07:42.816+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=pipeline_dvf_immobilier, task_id=rafraichir_vue_materialisee, execution_date=20260410T130049, start_date=20260410T130742, end_date=20260410T130742
+[2026-04-10T13:07:42.869+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2026-04-10T13:07:42.888+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,37 @@
+[2026-04-10T12:50:35.273+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: pipeline_dvf_immobilier.generer_rapport manual__2026-04-10T12:45:28.909007+00:00 [queued]>
+[2026-04-10T12:50:35.279+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: pipeline_dvf_immobilier.generer_rapport manual__2026-04-10T12:45:28.909007+00:00 [queued]>
+[2026-04-10T12:50:35.279+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 2
+[2026-04-10T12:50:35.289+0000] {taskinstance.py:2191} INFO - Executing <Task(_PythonDecoratedOperator): generer_rapport> on 2026-04-10 12:45:28.909007+00:00
+[2026-04-10T12:50:35.293+0000] {standard_task_runner.py:60} INFO - Started process 309 to run task
+[2026-04-10T12:50:35.296+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'pipeline_dvf_immobilier', 'generer_rapport', 'manual__2026-04-10T12:45:28.909007+00:00', '--job-id', '10', '--raw', '--subdir', 'DAGS_FOLDER/dag_dvf.py', '--cfg-path', '/tmp/tmpn0ogp04f']
+[2026-04-10T12:50:35.297+0000] {standard_task_runner.py:88} INFO - Job 10: Subtask generer_rapport
+[2026-04-10T12:50:35.332+0000] {task_command.py:423} INFO - Running <TaskInstance: pipeline_dvf_immobilier.generer_rapport manual__2026-04-10T12:45:28.909007+00:00 [running]> on host 589a27fa1088
+[2026-04-10T12:50:35.511+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='antigravity' AIRFLOW_CTX_DAG_ID='pipeline_dvf_immobilier' AIRFLOW_CTX_TASK_ID='generer_rapport' AIRFLOW_CTX_EXECUTION_DATE='2026-04-10T12:45:28.909007+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-04-10T12:45:28.909007+00:00'
+[2026-04-10T12:50:35.522+0000] {dag_dvf.py:334} ERROR - Error in generer_rapport: The conn_id `dvf_postgres` isn't defined
+[2026-04-10T12:50:35.536+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/decorators/base.py", line 241, in execute
+    return_value = super().execute(context)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 199, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 216, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/dag_dvf.py", line 309, in generer_rapport
+    rows = pg_hook.get_records("""
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/common/sql/hooks/sql.py", line 261, in get_records
+    return self.run(sql=sql, parameters=parameters, handler=fetch_all_handler)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/common/sql/hooks/sql.py", line 391, in run
+    with closing(self.get_conn()) as conn:
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/postgres/hooks/postgres.py", line 128, in get_conn
+    conn = deepcopy(self.connection or self.get_connection(conn_id))
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/hooks/base.py", line 82, in get_connection
+    conn = Connection.get_connection_from_secrets(conn_id)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/connection.py", line 479, in get_connection_from_secrets
+    raise AirflowNotFoundException(f"The conn_id `{conn_id}` isn't defined")
+airflow.exceptions.AirflowNotFoundException: The conn_id `dvf_postgres` isn't defined
+[2026-04-10T12:50:35.542+0000] {taskinstance.py:1138} INFO - Marking task as UP_FOR_RETRY. dag_id=pipeline_dvf_immobilier, task_id=generer_rapport, execution_date=20260410T124528, start_date=20260410T125035, end_date=20260410T125035
+[2026-04-10T12:50:35.551+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 10 for task generer_rapport (The conn_id `dvf_postgres` isn't defined; 309)
+[2026-04-10T12:50:35.588+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2026-04-10T12:50:35.608+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

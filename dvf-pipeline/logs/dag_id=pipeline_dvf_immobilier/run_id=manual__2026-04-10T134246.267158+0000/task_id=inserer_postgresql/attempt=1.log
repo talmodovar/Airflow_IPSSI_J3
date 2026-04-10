@@ -1,0 +1,355 @@
+[2026-04-10T13:43:45.690+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: pipeline_dvf_immobilier.inserer_postgresql manual__2026-04-10T13:42:46.267158+00:00 [queued]>
+[2026-04-10T13:43:45.702+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: pipeline_dvf_immobilier.inserer_postgresql manual__2026-04-10T13:42:46.267158+00:00 [queued]>
+[2026-04-10T13:43:45.703+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 2
+[2026-04-10T13:43:45.720+0000] {taskinstance.py:2191} INFO - Executing <Task(_PythonDecoratedOperator): inserer_postgresql> on 2026-04-10 13:42:46.267158+00:00
+[2026-04-10T13:43:45.726+0000] {standard_task_runner.py:60} INFO - Started process 688 to run task
+[2026-04-10T13:43:45.729+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'pipeline_dvf_immobilier', 'inserer_postgresql', 'manual__2026-04-10T13:42:46.267158+00:00', '--job-id', '27', '--raw', '--subdir', 'DAGS_FOLDER/dag_dvf.py', '--cfg-path', '/tmp/tmpzepn0duy']
+[2026-04-10T13:43:45.731+0000] {standard_task_runner.py:88} INFO - Job 27: Subtask inserer_postgresql
+[2026-04-10T13:43:45.789+0000] {task_command.py:423} INFO - Running <TaskInstance: pipeline_dvf_immobilier.inserer_postgresql manual__2026-04-10T13:42:46.267158+00:00 [running]> on host 47d9fcb38104
+[2026-04-10T13:43:46.051+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='antigravity' AIRFLOW_CTX_DAG_ID='pipeline_dvf_immobilier' AIRFLOW_CTX_TASK_ID='inserer_postgresql' AIRFLOW_CTX_EXECUTION_DATE='2026-04-10T13:42:46.267158+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-04-10T13:42:46.267158+00:00'
+[2026-04-10T13:43:46.053+0000] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2026-04-10T13:43:46.054+0000] {base.py:83} INFO - Using connection ID 'dvf_postgres' for task execution.
+[2026-04-10T13:43:46.060+0000] {sql.py:450} INFO - Running statement: 
+                    INSERT INTO prix_m2_arrondissement
+                        (code_postal, arrondissement, annee, mois, prix_m2_moyen, prix_m2_median,
+                         prix_m2_min, prix_m2_max, nb_transactions, surface_moyenne)
+                    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                    ON CONFLICT (code_postal, annee, mois)
+                    DO UPDATE SET
+                        prix_m2_moyen   = EXCLUDED.prix_m2_moyen,
+                        prix_m2_median  = EXCLUDED.prix_m2_median,
+                        prix_m2_min     = EXCLUDED.prix_m2_min,
+                        prix_m2_max     = EXCLUDED.prix_m2_max,
+                        nb_transactions = EXCLUDED.nb_transactions,
+                        surface_moyenne = EXCLUDED.surface_moyenne,
+                        updated_at      = NOW();
+                , parameters: ('75001', 1, 2023, 1, 41163.079164456176, 13409.09090909091, 126.3157894736842, 1194312.5, 407, 57.82309582309583)
+[2026-04-10T13:43:46.065+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-04-10T13:43:46.070+0000] {base.py:83} INFO - Using connection ID 'dvf_postgres' for task execution.
+[2026-04-10T13:43:46.075+0000] {sql.py:450} INFO - Running statement: 
+                    INSERT INTO prix_m2_arrondissement
+                        (code_postal, arrondissement, annee, mois, prix_m2_moyen, prix_m2_median,
+                         prix_m2_min, prix_m2_max, nb_transactions, surface_moyenne)
+                    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                    ON CONFLICT (code_postal, annee, mois)
+                    DO UPDATE SET
+                        prix_m2_moyen   = EXCLUDED.prix_m2_moyen,
+                        prix_m2_median  = EXCLUDED.prix_m2_median,
+                        prix_m2_min     = EXCLUDED.prix_m2_min,
+                        prix_m2_max     = EXCLUDED.prix_m2_max,
+                        nb_transactions = EXCLUDED.nb_transactions,
+                        surface_moyenne = EXCLUDED.surface_moyenne,
+                        updated_at      = NOW();
+                , parameters: ('75002', 2, 2023, 1, 27354.776437813143, 12008.42105263158, 79.3103448275862, 1000000.0, 478, 47.27615062761506)
+[2026-04-10T13:43:46.077+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-04-10T13:43:46.081+0000] {base.py:83} INFO - Using connection ID 'dvf_postgres' for task execution.
+[2026-04-10T13:43:46.087+0000] {sql.py:450} INFO - Running statement: 
+                    INSERT INTO prix_m2_arrondissement
+                        (code_postal, arrondissement, annee, mois, prix_m2_moyen, prix_m2_median,
+                         prix_m2_min, prix_m2_max, nb_transactions, surface_moyenne)
+                    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                    ON CONFLICT (code_postal, annee, mois)
+                    DO UPDATE SET
+                        prix_m2_moyen   = EXCLUDED.prix_m2_moyen,
+                        prix_m2_median  = EXCLUDED.prix_m2_median,
+                        prix_m2_min     = EXCLUDED.prix_m2_min,
+                        prix_m2_max     = EXCLUDED.prix_m2_max,
+                        nb_transactions = EXCLUDED.nb_transactions,
+                        surface_moyenne = EXCLUDED.surface_moyenne,
+                        updated_at      = NOW();
+                , parameters: ('75003', 3, 2023, 1, 50007.62691133797, 12829.787234042553, 165.01648514851485, 1222222.2222222222, 797, 52.846925972396484)
+[2026-04-10T13:43:46.089+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-04-10T13:43:46.093+0000] {base.py:83} INFO - Using connection ID 'dvf_postgres' for task execution.
+[2026-04-10T13:43:46.098+0000] {sql.py:450} INFO - Running statement: 
+                    INSERT INTO prix_m2_arrondissement
+                        (code_postal, arrondissement, annee, mois, prix_m2_moyen, prix_m2_median,
+                         prix_m2_min, prix_m2_max, nb_transactions, surface_moyenne)
+                    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                    ON CONFLICT (code_postal, annee, mois)
+                    DO UPDATE SET
+                        prix_m2_moyen   = EXCLUDED.prix_m2_moyen,
+                        prix_m2_median  = EXCLUDED.prix_m2_median,
+                        prix_m2_min     = EXCLUDED.prix_m2_min,
+                        prix_m2_max     = EXCLUDED.prix_m2_max,
+                        nb_transactions = EXCLUDED.nb_transactions,
+                        surface_moyenne = EXCLUDED.surface_moyenne,
+                        updated_at      = NOW();
+                , parameters: ('75004', 4, 2023, 1, 60392.33240758861, 13883.480325644505, 285.7142857142857, 2416666.6666666665, 594, 52.715488215488215)
+[2026-04-10T13:43:46.100+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-04-10T13:43:46.104+0000] {base.py:83} INFO - Using connection ID 'dvf_postgres' for task execution.
+[2026-04-10T13:43:46.110+0000] {sql.py:450} INFO - Running statement: 
+                    INSERT INTO prix_m2_arrondissement
+                        (code_postal, arrondissement, annee, mois, prix_m2_moyen, prix_m2_median,
+                         prix_m2_min, prix_m2_max, nb_transactions, surface_moyenne)
+                    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                    ON CONFLICT (code_postal, annee, mois)
+                    DO UPDATE SET
+                        prix_m2_moyen   = EXCLUDED.prix_m2_moyen,
+                        prix_m2_median  = EXCLUDED.prix_m2_median,
+                        prix_m2_min     = EXCLUDED.prix_m2_min,
+                        prix_m2_max     = EXCLUDED.prix_m2_max,
+                        nb_transactions = EXCLUDED.nb_transactions,
+                        surface_moyenne = EXCLUDED.surface_moyenne,
+                        updated_at      = NOW();
+                , parameters: ('75005', 5, 2023, 1, 26980.287089659236, 12864.583333333334, 298.5074626865672, 685500.0, 1009, 48.06144697720515)
+[2026-04-10T13:43:46.112+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-04-10T13:43:46.116+0000] {base.py:83} INFO - Using connection ID 'dvf_postgres' for task execution.
+[2026-04-10T13:43:46.122+0000] {sql.py:450} INFO - Running statement: 
+                    INSERT INTO prix_m2_arrondissement
+                        (code_postal, arrondissement, annee, mois, prix_m2_moyen, prix_m2_median,
+                         prix_m2_min, prix_m2_max, nb_transactions, surface_moyenne)
+                    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                    ON CONFLICT (code_postal, annee, mois)
+                    DO UPDATE SET
+                        prix_m2_moyen   = EXCLUDED.prix_m2_moyen,
+                        prix_m2_median  = EXCLUDED.prix_m2_median,
+                        prix_m2_min     = EXCLUDED.prix_m2_min,
+                        prix_m2_max     = EXCLUDED.prix_m2_max,
+                        nb_transactions = EXCLUDED.nb_transactions,
+                        surface_moyenne = EXCLUDED.surface_moyenne,
+                        updated_at      = NOW();
+                , parameters: ('75006', 6, 2023, 1, 80045.5552126201, 16186.061381074169, 72.11538461538461, 2861111.111111111, 916, 63.7532751091703)
+[2026-04-10T13:43:46.124+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-04-10T13:43:46.128+0000] {base.py:83} INFO - Using connection ID 'dvf_postgres' for task execution.
+[2026-04-10T13:43:46.135+0000] {sql.py:450} INFO - Running statement: 
+                    INSERT INTO prix_m2_arrondissement
+                        (code_postal, arrondissement, annee, mois, prix_m2_moyen, prix_m2_median,
+                         prix_m2_min, prix_m2_max, nb_transactions, surface_moyenne)
+                    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                    ON CONFLICT (code_postal, annee, mois)
+                    DO UPDATE SET
+                        prix_m2_moyen   = EXCLUDED.prix_m2_moyen,
+                        prix_m2_median  = EXCLUDED.prix_m2_median,
+                        prix_m2_min     = EXCLUDED.prix_m2_min,
+                        prix_m2_max     = EXCLUDED.prix_m2_max,
+                        nb_transactions = EXCLUDED.nb_transactions,
+                        surface_moyenne = EXCLUDED.surface_moyenne,
+                        updated_at      = NOW();
+                , parameters: ('75007', 7, 2023, 1, 29776.35901137375, 15302.43161094225, 80.12820512820512, 1285714.2857142857, 1036, 78.93050193050193)
+[2026-04-10T13:43:46.136+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-04-10T13:43:46.140+0000] {base.py:83} INFO - Using connection ID 'dvf_postgres' for task execution.
+[2026-04-10T13:43:46.146+0000] {sql.py:450} INFO - Running statement: 
+                    INSERT INTO prix_m2_arrondissement
+                        (code_postal, arrondissement, annee, mois, prix_m2_moyen, prix_m2_median,
+                         prix_m2_min, prix_m2_max, nb_transactions, surface_moyenne)
+                    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                    ON CONFLICT (code_postal, annee, mois)
+                    DO UPDATE SET
+                        prix_m2_moyen   = EXCLUDED.prix_m2_moyen,
+                        prix_m2_median  = EXCLUDED.prix_m2_median,
+                        prix_m2_min     = EXCLUDED.prix_m2_min,
+                        prix_m2_max     = EXCLUDED.prix_m2_max,
+                        nb_transactions = EXCLUDED.nb_transactions,
+                        surface_moyenne = EXCLUDED.surface_moyenne,
+                        updated_at      = NOW();
+                , parameters: ('75008', 8, 2023, 1, 71235.30464780884, 13615.626345243221, 333.3333333333333, 4366666.666666667, 700, 83.01428571428572)
+[2026-04-10T13:43:46.149+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-04-10T13:43:46.153+0000] {base.py:83} INFO - Using connection ID 'dvf_postgres' for task execution.
+[2026-04-10T13:43:46.159+0000] {sql.py:450} INFO - Running statement: 
+                    INSERT INTO prix_m2_arrondissement
+                        (code_postal, arrondissement, annee, mois, prix_m2_moyen, prix_m2_median,
+                         prix_m2_min, prix_m2_max, nb_transactions, surface_moyenne)
+                    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                    ON CONFLICT (code_postal, annee, mois)
+                    DO UPDATE SET
+                        prix_m2_moyen   = EXCLUDED.prix_m2_moyen,
+                        prix_m2_median  = EXCLUDED.prix_m2_median,
+                        prix_m2_min     = EXCLUDED.prix_m2_min,
+                        prix_m2_max     = EXCLUDED.prix_m2_max,
+                        nb_transactions = EXCLUDED.nb_transactions,
+                        surface_moyenne = EXCLUDED.surface_moyenne,
+                        updated_at      = NOW();
+                , parameters: ('75009', 9, 2023, 1, 24930.26115024049, 11500.0, 120.0, 911904.7619047619, 1139, 55.38718173836699)
+[2026-04-10T13:43:46.161+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-04-10T13:43:46.165+0000] {base.py:83} INFO - Using connection ID 'dvf_postgres' for task execution.
+[2026-04-10T13:43:46.171+0000] {sql.py:450} INFO - Running statement: 
+                    INSERT INTO prix_m2_arrondissement
+                        (code_postal, arrondissement, annee, mois, prix_m2_moyen, prix_m2_median,
+                         prix_m2_min, prix_m2_max, nb_transactions, surface_moyenne)
+                    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                    ON CONFLICT (code_postal, annee, mois)
+                    DO UPDATE SET
+                        prix_m2_moyen   = EXCLUDED.prix_m2_moyen,
+                        prix_m2_median  = EXCLUDED.prix_m2_median,
+                        prix_m2_min     = EXCLUDED.prix_m2_min,
+                        prix_m2_max     = EXCLUDED.prix_m2_max,
+                        nb_transactions = EXCLUDED.nb_transactions,
+                        surface_moyenne = EXCLUDED.surface_moyenne,
+                        updated_at      = NOW();
+                , parameters: ('75010', 10, 2023, 1, 42763.95258172537, 10260.0, 326.80555555555554, 1715315.8095238095, 1827, 46.93103448275862)
+[2026-04-10T13:43:46.173+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-04-10T13:43:46.177+0000] {base.py:83} INFO - Using connection ID 'dvf_postgres' for task execution.
+[2026-04-10T13:43:46.184+0000] {sql.py:450} INFO - Running statement: 
+                    INSERT INTO prix_m2_arrondissement
+                        (code_postal, arrondissement, annee, mois, prix_m2_moyen, prix_m2_median,
+                         prix_m2_min, prix_m2_max, nb_transactions, surface_moyenne)
+                    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                    ON CONFLICT (code_postal, annee, mois)
+                    DO UPDATE SET
+                        prix_m2_moyen   = EXCLUDED.prix_m2_moyen,
+                        prix_m2_median  = EXCLUDED.prix_m2_median,
+                        prix_m2_min     = EXCLUDED.prix_m2_min,
+                        prix_m2_max     = EXCLUDED.prix_m2_max,
+                        nb_transactions = EXCLUDED.nb_transactions,
+                        surface_moyenne = EXCLUDED.surface_moyenne,
+                        updated_at      = NOW();
+                , parameters: ('75011', 11, 2023, 1, 22220.882303406062, 10527.04678362573, 151.49006622516555, 929636.3636363636, 2624, 44.49618902439025)
+[2026-04-10T13:43:46.186+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-04-10T13:43:46.190+0000] {base.py:83} INFO - Using connection ID 'dvf_postgres' for task execution.
+[2026-04-10T13:43:46.197+0000] {sql.py:450} INFO - Running statement: 
+                    INSERT INTO prix_m2_arrondissement
+                        (code_postal, arrondissement, annee, mois, prix_m2_moyen, prix_m2_median,
+                         prix_m2_min, prix_m2_max, nb_transactions, surface_moyenne)
+                    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                    ON CONFLICT (code_postal, annee, mois)
+                    DO UPDATE SET
+                        prix_m2_moyen   = EXCLUDED.prix_m2_moyen,
+                        prix_m2_median  = EXCLUDED.prix_m2_median,
+                        prix_m2_min     = EXCLUDED.prix_m2_min,
+                        prix_m2_max     = EXCLUDED.prix_m2_max,
+                        nb_transactions = EXCLUDED.nb_transactions,
+                        surface_moyenne = EXCLUDED.surface_moyenne,
+                        updated_at      = NOW();
+                , parameters: ('75012', 12, 2023, 1, 114734.15964844597, 9800.0, 321.86915887850466, 4200000.0, 1947, 46.628145865434)
+[2026-04-10T13:43:46.199+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-04-10T13:43:46.203+0000] {base.py:83} INFO - Using connection ID 'dvf_postgres' for task execution.
+[2026-04-10T13:43:46.211+0000] {sql.py:450} INFO - Running statement: 
+                    INSERT INTO prix_m2_arrondissement
+                        (code_postal, arrondissement, annee, mois, prix_m2_moyen, prix_m2_median,
+                         prix_m2_min, prix_m2_max, nb_transactions, surface_moyenne)
+                    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                    ON CONFLICT (code_postal, annee, mois)
+                    DO UPDATE SET
+                        prix_m2_moyen   = EXCLUDED.prix_m2_moyen,
+                        prix_m2_median  = EXCLUDED.prix_m2_median,
+                        prix_m2_min     = EXCLUDED.prix_m2_min,
+                        prix_m2_max     = EXCLUDED.prix_m2_max,
+                        nb_transactions = EXCLUDED.nb_transactions,
+                        surface_moyenne = EXCLUDED.surface_moyenne,
+                        updated_at      = NOW();
+                , parameters: ('75013', 13, 2023, 1, 244531.06675555866, 9535.29900332226, 351.63675675675677, 7000000.0, 1744, 46.71215596330275)
+[2026-04-10T13:43:46.213+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-04-10T13:43:46.217+0000] {base.py:83} INFO - Using connection ID 'dvf_postgres' for task execution.
+[2026-04-10T13:43:46.223+0000] {sql.py:450} INFO - Running statement: 
+                    INSERT INTO prix_m2_arrondissement
+                        (code_postal, arrondissement, annee, mois, prix_m2_moyen, prix_m2_median,
+                         prix_m2_min, prix_m2_max, nb_transactions, surface_moyenne)
+                    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                    ON CONFLICT (code_postal, annee, mois)
+                    DO UPDATE SET
+                        prix_m2_moyen   = EXCLUDED.prix_m2_moyen,
+                        prix_m2_median  = EXCLUDED.prix_m2_median,
+                        prix_m2_min     = EXCLUDED.prix_m2_min,
+                        prix_m2_max     = EXCLUDED.prix_m2_max,
+                        nb_transactions = EXCLUDED.nb_transactions,
+                        surface_moyenne = EXCLUDED.surface_moyenne,
+                        updated_at      = NOW();
+                , parameters: ('75014', 14, 2023, 1, 32724.448790295624, 10409.098466825271, 237.42666666666668, 879558.2857142857, 1776, 45.034346846846844)
+[2026-04-10T13:43:46.226+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-04-10T13:43:46.230+0000] {base.py:83} INFO - Using connection ID 'dvf_postgres' for task execution.
+[2026-04-10T13:43:46.236+0000] {sql.py:450} INFO - Running statement: 
+                    INSERT INTO prix_m2_arrondissement
+                        (code_postal, arrondissement, annee, mois, prix_m2_moyen, prix_m2_median,
+                         prix_m2_min, prix_m2_max, nb_transactions, surface_moyenne)
+                    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                    ON CONFLICT (code_postal, annee, mois)
+                    DO UPDATE SET
+                        prix_m2_moyen   = EXCLUDED.prix_m2_moyen,
+                        prix_m2_median  = EXCLUDED.prix_m2_median,
+                        prix_m2_min     = EXCLUDED.prix_m2_min,
+                        prix_m2_max     = EXCLUDED.prix_m2_max,
+                        nb_transactions = EXCLUDED.nb_transactions,
+                        surface_moyenne = EXCLUDED.surface_moyenne,
+                        updated_at      = NOW();
+                , parameters: ('75015', 15, 2023, 1, 20716.978899540038, 10156.25, 125.0, 525200.0, 3264, 49.84742647058823)
+[2026-04-10T13:43:46.238+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-04-10T13:43:46.243+0000] {base.py:83} INFO - Using connection ID 'dvf_postgres' for task execution.
+[2026-04-10T13:43:46.249+0000] {sql.py:450} INFO - Running statement: 
+                    INSERT INTO prix_m2_arrondissement
+                        (code_postal, arrondissement, annee, mois, prix_m2_moyen, prix_m2_median,
+                         prix_m2_min, prix_m2_max, nb_transactions, surface_moyenne)
+                    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                    ON CONFLICT (code_postal, annee, mois)
+                    DO UPDATE SET
+                        prix_m2_moyen   = EXCLUDED.prix_m2_moyen,
+                        prix_m2_median  = EXCLUDED.prix_m2_median,
+                        prix_m2_min     = EXCLUDED.prix_m2_min,
+                        prix_m2_max     = EXCLUDED.prix_m2_max,
+                        nb_transactions = EXCLUDED.nb_transactions,
+                        surface_moyenne = EXCLUDED.surface_moyenne,
+                        updated_at      = NOW();
+                , parameters: ('75016', 16, 2023, 1, 41258.511495073326, 11759.25925925926, 79.7872340425532, 2147058.8235294116, 2729, 84.30194210333455)
+[2026-04-10T13:43:46.251+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-04-10T13:43:46.256+0000] {base.py:83} INFO - Using connection ID 'dvf_postgres' for task execution.
+[2026-04-10T13:43:46.262+0000] {sql.py:450} INFO - Running statement: 
+                    INSERT INTO prix_m2_arrondissement
+                        (code_postal, arrondissement, annee, mois, prix_m2_moyen, prix_m2_median,
+                         prix_m2_min, prix_m2_max, nb_transactions, surface_moyenne)
+                    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                    ON CONFLICT (code_postal, annee, mois)
+                    DO UPDATE SET
+                        prix_m2_moyen   = EXCLUDED.prix_m2_moyen,
+                        prix_m2_median  = EXCLUDED.prix_m2_median,
+                        prix_m2_min     = EXCLUDED.prix_m2_min,
+                        prix_m2_max     = EXCLUDED.prix_m2_max,
+                        nb_transactions = EXCLUDED.nb_transactions,
+                        surface_moyenne = EXCLUDED.surface_moyenne,
+                        updated_at      = NOW();
+                , parameters: ('75017', 17, 2023, 1, 32633.20962373756, 11011.083743842364, 144.28571428571428, 1877777.7777777778, 2763, 55.541440463264564)
+[2026-04-10T13:43:46.265+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-04-10T13:43:46.269+0000] {base.py:83} INFO - Using connection ID 'dvf_postgres' for task execution.
+[2026-04-10T13:43:46.276+0000] {sql.py:450} INFO - Running statement: 
+                    INSERT INTO prix_m2_arrondissement
+                        (code_postal, arrondissement, annee, mois, prix_m2_moyen, prix_m2_median,
+                         prix_m2_min, prix_m2_max, nb_transactions, surface_moyenne)
+                    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                    ON CONFLICT (code_postal, annee, mois)
+                    DO UPDATE SET
+                        prix_m2_moyen   = EXCLUDED.prix_m2_moyen,
+                        prix_m2_median  = EXCLUDED.prix_m2_median,
+                        prix_m2_min     = EXCLUDED.prix_m2_min,
+                        prix_m2_max     = EXCLUDED.prix_m2_max,
+                        nb_transactions = EXCLUDED.nb_transactions,
+                        surface_moyenne = EXCLUDED.surface_moyenne,
+                        updated_at      = NOW();
+                , parameters: ('75018', 18, 2023, 1, 23647.869115013164, 9796.60606060606, 137.93103448275863, 346153.8461538461, 3556, 40.1937570303712)
+[2026-04-10T13:43:46.279+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-04-10T13:43:46.284+0000] {base.py:83} INFO - Using connection ID 'dvf_postgres' for task execution.
+[2026-04-10T13:43:46.290+0000] {sql.py:450} INFO - Running statement: 
+                    INSERT INTO prix_m2_arrondissement
+                        (code_postal, arrondissement, annee, mois, prix_m2_moyen, prix_m2_median,
+                         prix_m2_min, prix_m2_max, nb_transactions, surface_moyenne)
+                    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                    ON CONFLICT (code_postal, annee, mois)
+                    DO UPDATE SET
+                        prix_m2_moyen   = EXCLUDED.prix_m2_moyen,
+                        prix_m2_median  = EXCLUDED.prix_m2_median,
+                        prix_m2_min     = EXCLUDED.prix_m2_min,
+                        prix_m2_max     = EXCLUDED.prix_m2_max,
+                        nb_transactions = EXCLUDED.nb_transactions,
+                        surface_moyenne = EXCLUDED.surface_moyenne,
+                        updated_at      = NOW();
+                , parameters: ('75019', 19, 2023, 1, 69173.25368154616, 9216.867469879518, 136.36363636363637, 1066666.6666666667, 2030, 44.175862068965515)
+[2026-04-10T13:43:46.292+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-04-10T13:43:46.296+0000] {base.py:83} INFO - Using connection ID 'dvf_postgres' for task execution.
+[2026-04-10T13:43:46.303+0000] {sql.py:450} INFO - Running statement: 
+                    INSERT INTO prix_m2_arrondissement
+                        (code_postal, arrondissement, annee, mois, prix_m2_moyen, prix_m2_median,
+                         prix_m2_min, prix_m2_max, nb_transactions, surface_moyenne)
+                    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                    ON CONFLICT (code_postal, annee, mois)
+                    DO UPDATE SET
+                        prix_m2_moyen   = EXCLUDED.prix_m2_moyen,
+                        prix_m2_median  = EXCLUDED.prix_m2_median,
+                        prix_m2_min     = EXCLUDED.prix_m2_min,
+                        prix_m2_max     = EXCLUDED.prix_m2_max,
+                        nb_transactions = EXCLUDED.nb_transactions,
+                        surface_moyenne = EXCLUDED.surface_moyenne,
+                        updated_at      = NOW();
+                , parameters: ('75020', 20, 2023, 1, 17250.389857307076, 8900.0, 318.1818181818182, 486538.46153846156, 2047, 43.53297508549096)
+[2026-04-10T13:43:46.305+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-04-10T13:43:46.308+0000] {dag_dvf.py:316} INFO - Upserted 20 rows into prix_m2_arrondissement
+[2026-04-10T13:43:46.309+0000] {python.py:201} INFO - Done. Returned value was: 20
+[2026-04-10T13:43:46.336+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=pipeline_dvf_immobilier, task_id=inserer_postgresql, execution_date=20260410T134246, start_date=20260410T134345, end_date=20260410T134346
+[2026-04-10T13:43:46.384+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2026-04-10T13:43:46.542+0000] {taskinstance.py:3280} INFO - 1 downstream tasks scheduled from follow-on schedule check

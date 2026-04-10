@@ -1,0 +1,20 @@
+[2026-04-10T13:42:48.068+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: pipeline_dvf_immobilier.verifier_sources manual__2026-04-10T13:42:46.267158+00:00 [queued]>
+[2026-04-10T13:42:48.075+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: pipeline_dvf_immobilier.verifier_sources manual__2026-04-10T13:42:46.267158+00:00 [queued]>
+[2026-04-10T13:42:48.076+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 2
+[2026-04-10T13:42:48.088+0000] {taskinstance.py:2191} INFO - Executing <Task(_PythonDecoratedOperator): verifier_sources> on 2026-04-10 13:42:46.267158+00:00
+[2026-04-10T13:42:48.094+0000] {standard_task_runner.py:60} INFO - Started process 661 to run task
+[2026-04-10T13:42:48.097+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'pipeline_dvf_immobilier', 'verifier_sources', 'manual__2026-04-10T13:42:46.267158+00:00', '--job-id', '22', '--raw', '--subdir', 'DAGS_FOLDER/dag_dvf.py', '--cfg-path', '/tmp/tmpw_ytgbkk']
+[2026-04-10T13:42:48.100+0000] {standard_task_runner.py:88} INFO - Job 22: Subtask verifier_sources
+[2026-04-10T13:42:48.154+0000] {task_command.py:423} INFO - Running <TaskInstance: pipeline_dvf_immobilier.verifier_sources manual__2026-04-10T13:42:46.267158+00:00 [running]> on host 47d9fcb38104
+[2026-04-10T13:42:48.369+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='antigravity' AIRFLOW_CTX_DAG_ID='pipeline_dvf_immobilier' AIRFLOW_CTX_TASK_ID='verifier_sources' AIRFLOW_CTX_EXECUTION_DATE='2026-04-10T13:42:46.267158+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-04-10T13:42:46.267158+00:00'
+[2026-04-10T13:42:48.553+0000] {dag_dvf.py:64} INFO - DVF URL Check: True
+[2026-04-10T13:42:48.555+0000] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2026-04-10T13:42:48.555+0000] {base.py:83} INFO - Using connection ID 'dvf_postgres' for task execution.
+[2026-04-10T13:42:48.560+0000] {sql.py:450} INFO - Running statement: SELECT 1, parameters: None
+[2026-04-10T13:42:48.563+0000] {sql.py:459} INFO - Rows affected: 1
+[2026-04-10T13:42:48.566+0000] {dag_dvf.py:71} INFO - Postgres Check: OK
+[2026-04-10T13:42:48.649+0000] {dag_dvf.py:76} INFO - HDFS Check: True
+[2026-04-10T13:42:48.650+0000] {python.py:201} INFO - Done. Returned value was: {'url_ok': True, 'postgres_ok': True, 'hdfs_ok': True}
+[2026-04-10T13:42:48.673+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=pipeline_dvf_immobilier, task_id=verifier_sources, execution_date=20260410T134246, start_date=20260410T134248, end_date=20260410T134248
+[2026-04-10T13:42:48.711+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2026-04-10T13:42:48.852+0000] {taskinstance.py:3280} INFO - 1 downstream tasks scheduled from follow-on schedule check

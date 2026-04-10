@@ -1,0 +1,30 @@
+[2026-04-10T13:43:49.608+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: pipeline_dvf_immobilier.analyser_tendances manual__2026-04-10T13:42:46.267158+00:00 [queued]>
+[2026-04-10T13:43:49.616+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: pipeline_dvf_immobilier.analyser_tendances manual__2026-04-10T13:42:46.267158+00:00 [queued]>
+[2026-04-10T13:43:49.617+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 2
+[2026-04-10T13:43:49.628+0000] {taskinstance.py:2191} INFO - Executing <Task(_PythonDecoratedOperator): analyser_tendances> on 2026-04-10 13:42:46.267158+00:00
+[2026-04-10T13:43:49.632+0000] {standard_task_runner.py:60} INFO - Started process 694 to run task
+[2026-04-10T13:43:49.635+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'pipeline_dvf_immobilier', 'analyser_tendances', 'manual__2026-04-10T13:42:46.267158+00:00', '--job-id', '29', '--raw', '--subdir', 'DAGS_FOLDER/dag_dvf.py', '--cfg-path', '/tmp/tmpsbt432u1']
+[2026-04-10T13:43:49.638+0000] {standard_task_runner.py:88} INFO - Job 29: Subtask analyser_tendances
+[2026-04-10T13:43:49.697+0000] {task_command.py:423} INFO - Running <TaskInstance: pipeline_dvf_immobilier.analyser_tendances manual__2026-04-10T13:42:46.267158+00:00 [running]> on host 47d9fcb38104
+[2026-04-10T13:43:49.962+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='antigravity' AIRFLOW_CTX_DAG_ID='pipeline_dvf_immobilier' AIRFLOW_CTX_TASK_ID='analyser_tendances' AIRFLOW_CTX_EXECUTION_DATE='2026-04-10T13:42:46.267158+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-04-10T13:42:46.267158+00:00'
+[2026-04-10T13:43:49.965+0000] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2026-04-10T13:43:49.967+0000] {base.py:83} INFO - Using connection ID 'dvf_postgres' for task execution.
+[2026-04-10T13:43:49.975+0000] {sql.py:450} INFO - Running statement: 
+                INSERT INTO stats_marche (arrondissement, prix_courant, prix_precedent, variation_pct, annee, mois)
+                SELECT 
+                    arrondissement, 
+                    prix_m2_median as prix_courant,
+                    LAG(prix_m2_median) OVER (PARTITION BY arrondissement ORDER BY annee, mois) as prix_precedent,
+                    ((prix_m2_median / NULLIF(LAG(prix_m2_median) OVER (PARTITION BY arrondissement ORDER BY annee, mois), 0)) - 1) * 100 as variation_pct,
+                    annee, mois
+                FROM prix_m2_arrondissement
+                WHERE annee = 2023
+            , parameters: None
+[2026-04-10T13:43:49.982+0000] {sql.py:459} INFO - Rows affected: 20
+[2026-04-10T13:43:49.987+0000] {base.py:83} INFO - Using connection ID 'dvf_postgres' for task execution.
+[2026-04-10T13:43:49.995+0000] {sql.py:450} INFO - Running statement: SELECT arrondissement, variation_pct FROM stats_marche WHERE ABS(variation_pct) > 2, parameters: None
+[2026-04-10T13:43:49.999+0000] {sql.py:459} INFO - Rows affected: 0
+[2026-04-10T13:43:50.000+0000] {python.py:201} INFO - Done. Returned value was: None
+[2026-04-10T13:43:50.014+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=pipeline_dvf_immobilier, task_id=analyser_tendances, execution_date=20260410T134246, start_date=20260410T134349, end_date=20260410T134350
+[2026-04-10T13:43:50.053+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2026-04-10T13:43:50.096+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

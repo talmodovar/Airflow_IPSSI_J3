@@ -1,0 +1,16 @@
+[2026-04-10T13:43:06.938+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: pipeline_dvf_immobilier.stocker_hdfs_raw manual__2026-04-10T13:42:46.267158+00:00 [queued]>
+[2026-04-10T13:43:06.945+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: pipeline_dvf_immobilier.stocker_hdfs_raw manual__2026-04-10T13:42:46.267158+00:00 [queued]>
+[2026-04-10T13:43:06.946+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 2
+[2026-04-10T13:43:06.964+0000] {taskinstance.py:2191} INFO - Executing <Task(_PythonDecoratedOperator): stocker_hdfs_raw> on 2026-04-10 13:42:46.267158+00:00
+[2026-04-10T13:43:06.968+0000] {standard_task_runner.py:60} INFO - Started process 673 to run task
+[2026-04-10T13:43:06.971+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'pipeline_dvf_immobilier', 'stocker_hdfs_raw', 'manual__2026-04-10T13:42:46.267158+00:00', '--job-id', '24', '--raw', '--subdir', 'DAGS_FOLDER/dag_dvf.py', '--cfg-path', '/tmp/tmpa2oszr01']
+[2026-04-10T13:43:06.973+0000] {standard_task_runner.py:88} INFO - Job 24: Subtask stocker_hdfs_raw
+[2026-04-10T13:43:07.018+0000] {task_command.py:423} INFO - Running <TaskInstance: pipeline_dvf_immobilier.stocker_hdfs_raw manual__2026-04-10T13:42:46.267158+00:00 [running]> on host 47d9fcb38104
+[2026-04-10T13:43:07.260+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='antigravity' AIRFLOW_CTX_DAG_ID='pipeline_dvf_immobilier' AIRFLOW_CTX_TASK_ID='stocker_hdfs_raw' AIRFLOW_CTX_EXECUTION_DATE='2026-04-10T13:42:46.267158+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-04-10T13:42:46.267158+00:00'
+[2026-04-10T13:43:07.295+0000] {webhdfs_hook.py:22} INFO - Successfully created directory: /data/dvf/raw/annee=2023/dept=75
+[2026-04-10T13:43:14.469+0000] {webhdfs_hook.py:42} INFO - Successfully uploaded /tmp/dvf_2023.csv to /data/dvf/raw/annee=2023/dept=75/dvf_75_2023.csv
+[2026-04-10T13:43:14.570+0000] {dag_dvf.py:140} INFO - Stored in HDFS: /data/dvf/raw/annee=2023/dept=75/dvf_75_2023.csv
+[2026-04-10T13:43:14.571+0000] {python.py:201} INFO - Done. Returned value was: /data/dvf/raw/annee=2023/dept=75/dvf_75_2023.csv
+[2026-04-10T13:43:14.614+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=pipeline_dvf_immobilier, task_id=stocker_hdfs_raw, execution_date=20260410T134246, start_date=20260410T134306, end_date=20260410T134314
+[2026-04-10T13:43:14.697+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2026-04-10T13:43:15.181+0000] {taskinstance.py:3280} INFO - 1 downstream tasks scheduled from follow-on schedule check
