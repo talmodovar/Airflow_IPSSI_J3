@@ -1,6 +1,6 @@
 # DVF Pipeline — French Real Estate Data Analytics
 
-## 📝 Présentation du Projet
+##  Présentation du Projet
 Ce projet est un pipeline ETL (Extract, Transform, Load) complet conçu pour une startup proptech. Il automatise le traitement des données **DVF** (Demandes de Valeurs Foncières) françaises, permettant d'analyser les tendances du marché immobilier parisien à partir de fichiers de données massifs.
 
 ### Stack Technique
@@ -12,7 +12,7 @@ Ce projet est un pipeline ETL (Extract, Transform, Load) complet conçu pour une
 
 ---
 
-## 🛠️ Correctifs et Optimisations (Journal de bord)
+##  Correctifs et Optimisations (Journal de bord)
 
 Pour rendre ce projet fonctionnel et stable dans un environnement Docker, les modifications suivantes ont été apportées :
 
@@ -31,7 +31,7 @@ Déplacement de l'UI Airflow du port 8080 vers le port **8082**.
 
 ---
 
-## 🚀 Démarrage
+##  Démarrage
 
 1. **Lancer l'infrastructure** :
    ```bash
@@ -42,7 +42,7 @@ Déplacement de l'UI Airflow du port 8080 vers le port **8082**.
 
 ---
 
-## 📊 Architecture Data Flow
+##  Architecture Data Flow
 
 ```text
 [ data.gouv.fr ]  --(Download)--> [ /tmp/dvf.csv ]
@@ -60,7 +60,7 @@ Déplacement de l'UI Airflow du port 8080 vers le port **8082**.
                                     [ Statistics / Trends ]
 ```
 
-## 📋 Description des Tables
+##  Description des Tables
 - `dvf_raw` : Données nettoyées et filtrées (appartements, Paris).
 - `prix_m2_arrondissement` : Table pivot pour les calculs de moyennes et médianes.
 - `dvf_qualite_runs` : Logs de validité des données pour chaque exécution.
